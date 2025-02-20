@@ -1,0 +1,115 @@
+/* General Form Styles */
+.student-form {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+ 
+  /*favorite-subjects*/
+  .subject-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .subject-badge {
+    padding: 8px 12px;
+    border: 2px solid #007bff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: white;
+    color: #007bff;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .subject-badge:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .subject-badge.selected {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .subject-badge:active {
+    transform: scale(0.95);
+  }
+  
+
+  /* Labels */
+  .student-form label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+  }
+  
+  /* Input Fields */
+  .student-form input, .student-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  /* Input Focus */
+  .student-form input:focus, .student-form select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Error Messages */
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Invalid Inputs */
+  .is-invalid {
+    border-color: red !important;
+    background: #ffe6e6;
+  }
+  
+  /* Button Styling */
+  .student-form button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  /* Button Hover */
+  .student-form button:hover {
+    background: #0056b3;
+  }
+  
+  /* Disabled Button */
+  .student-form button:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .student-form {
+      width: 90%;
+    }
+  }
+  

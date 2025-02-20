@@ -1,0 +1,24 @@
+<h2>Student List</h2>
+<link rel="stylesheet" href="student-list.component.css">
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>FAVORITESUBJECTS</th>
+    <th>ACTIONS</th>
+  </tr>
+  <tr *ngFor="let student of students">
+    <td>{{ student.studentId }}</td>
+    <td>{{ student.name }}</td>
+    <td>{{ student.phone }}</td>
+    <td>{{ student.email }}</td>
+    <td>{{ student.department }}</td>
+    <td>{{student.favoriteSubjects}}</td>
+    <td>
+      <button (click)="deleteStudent(student._id)">Delete</button>
+    </td>
+  </tr>
+</table>

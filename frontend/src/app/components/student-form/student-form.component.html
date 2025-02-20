@@ -1,0 +1,100 @@
+<h2 style="margin-left: 370px;">Add Student</h2>
+<link rel="stylesheet" href="student-form.component.css">
+<form (ngSubmit)="addStudent()" #studentForm="ngForm" class="student-form">
+
+  <!-- Student ID (Only numbers) -->
+  <label>Student ID</label>
+  <input 
+    [(ngModel)]="student.studentId" 
+    name="studentId" 
+    placeholder="Enter Student ID" 
+    required 
+    pattern="^[0-9]+$"
+    #studentId="ngModel"
+    [ngClass]="{'is-invalid': studentId.invalid && studentId.touched}"
+  >
+  <div *ngIf="studentId.invalid && studentId.touched" class="error">
+    Student ID must contain only numbers.
+  </div>
+
+  <!-- Name (Only letters and spaces) -->
+  <label>Name</label>
+  <input 
+    [(ngModel)]="student.name" 
+    name="name" 
+    placeholder="Enter Name" 
+    required 
+    pattern="^[a-zA-Z ]+$"
+    #name="ngModel"
+    [ngClass]="{'is-invalid': name.invalid && name.touched}"
+  >
+  <div *ngIf="name.invalid && name.touched" class="error">
+    Name should contain only letters.
+  </div>
+
+  <!-- Phone (10-digit number) -->
+  <label>Phone Number</label>
+  <input 
+    [(ngModel)]="student.phone" 
+    name="phone" 
+    placeholder="Enter Phone Number" 
+    required 
+    pattern="^[0-9]{10}$"
+    #phone="ngModel"
+    [ngClass]="{'is-invalid': phone.invalid && phone.touched}"
+  >
+  <div *ngIf="phone.invalid && phone.touched" class="error">
+    Phone number must be exactly 10 digits.
+  </div>
+
+  <!-- Email (Valid format) -->
+  <label>Email</label>
+  <input 
+    [(ngModel)]="student.email" 
+    name="email" 
+    placeholder="Enter Email" 
+    required 
+    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$"
+    #email="ngModel"
+    [ngClass]="{'is-invalid': email.invalid && email.touched}"
+  >
+  <div *ngIf="email.invalid && email.touched" class="error">
+    Enter a valid email address.
+  </div>
+
+  <!-- Department (Dropdown) -->
+  <label>Department</label>
+  <select 
+    [(ngModel)]="student.department" 
+    name="department" 
+    required 
+    #department="ngModel"
+    [ngClass]="{'is-invalid': department.invalid && department.touched}"
+  >
+    <option value="" disabled selected>Select Department</option>
+    <option value="CSE">Computer Science & Engineering</option>
+    <option value="CIVIL">Civil Engineering</option>
+    <option value="AIDS">Artificial Intelligence & Data Science</option>
+    <option value="MECH">Mechanical Engineering</option>
+    <option value="EEE">Electrical & Electronics Engineering</option>
+  </select>
+  <div *ngIf="department.invalid && department.touched" class="error">
+    Please select a department.
+  </div>
+
+  <!-- Favorite Subjects (Multi-Select Dropdown) -->
+   
+  <label>Favorite Subjects</label>
+  <div class="subject-container">
+    <span 
+      *ngFor="let subject of subjects" 
+      (click)="toggleSubject(subject)"
+      [class.selected]="student.favoriteSubjects.includes(subject)"
+      class="subject-badge"
+    >
+      {{ subject }}
+    </span>
+  </div>
+
+  <button type="submit" [disabled]="studentForm.invalid">Add Student</button>
+</form>

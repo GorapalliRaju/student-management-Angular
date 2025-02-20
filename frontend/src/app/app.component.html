@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link  rel="stylesheet" href="app.component.css">
+</head>
+<body>
+  <div class="container">
+  <button (click)="toggleStudentList()" class="toggle-btn">
+    {{ showStudents ? 'Hide Students' : 'Show Students' }}
+  </button>
+</div>
+  <!-- Show Student List only if `showStudents` is true -->
+  <app-student-list *ngIf="showStudents"></app-student-list>
+  <div class="search-button">
+  <app-search-list></app-search-list>
+  </div>
+  <!-- Student Form Always Visible -->
+  <app-student-form></app-student-form>
+  
+</body>
+</html>

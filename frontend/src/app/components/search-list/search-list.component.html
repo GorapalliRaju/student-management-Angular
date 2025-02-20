@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="search-list.component.css">
+<div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search by Name or ID..." class="search-input">
+    <button (click)="searchStudent()" class="search-btn">
+      🔍 Search
+    </button>
+    </div>
+    <div class="search-result">
+    <h1 *ngIf="hello.length > 0">{{ hello[0].studentId }}</h1>
+    <h1 *ngIf="hello.length > 0">{{ hello[0].department}}</h1>
+    <h1 *ngIf="hello.length > 0">{{ hello[0].name}}</h1>
+    <h1 *ngIf="hello.length > 0">{{ hello[0].email}}</h1>
+    </div>
+
+  
