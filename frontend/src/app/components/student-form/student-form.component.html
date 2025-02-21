@@ -1,3 +1,10 @@
+
+  <button (click)="toggleStudentList()" class="toggle-btn">
+    {{ showStudents ? 'Hide Students' : 'Show Students' }}
+  </button>
+  <!-- Show Student List only if `showStudents` is true -->
+<app-student-list *ngIf="showStudents"></app-student-list>
+<app-search-list></app-search-list>
 <h2 style="margin-left: 370px;">Add Student</h2>
 <link rel="stylesheet" href="student-form.component.css">
 <form (ngSubmit)="addStudent()" #studentForm="ngForm" class="student-form">

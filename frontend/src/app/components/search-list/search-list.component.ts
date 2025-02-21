@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Student } from '../../models/student.model';
 import { StudentService } from '../../services/student.service';
+import { RegisterComponent } from '../register/register.component';
 @Component({
   selector: 'app-search-list',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,RegisterComponent],
   templateUrl: './search-list.component.html',
   styleUrl: './search-list.component.css'
 })

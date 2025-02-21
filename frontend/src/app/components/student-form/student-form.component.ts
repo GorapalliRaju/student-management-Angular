@@ -3,12 +3,14 @@ import { StudentService } from '../../services/student.service';
 import { Student } from '../../models/student.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { StudentListComponent } from '../student-list/student-list.component';
+import { SearchListComponent } from '../search-list/search-list.component';
 
 @Component({
   selector: 'app-student-form',
   standalone:true,
   templateUrl: './student-form.component.html',
-  imports:[FormsModule,CommonModule]
+  imports:[FormsModule,CommonModule,StudentListComponent,SearchListComponent]
 })
 export class StudentFormComponent {
   student: Student = { studentId: '', name: '', phone: '', email: '', department: '', favoriteSubjects: [] as string[]};
@@ -17,6 +19,11 @@ export class StudentFormComponent {
   prec:number=0;
   subjects = ["Physics", "Chemistry", "Mathematics", "Hindi", "Botany", "Biology", "Social", "English", "Computer Science"];
 
+  showStudents: boolean = false; // Initially hidden
+
+  toggleStudentList() {
+    this.showStudents = !this.showStudents;
+  }
   // ✅ Function to handle multi-select toggle
   toggleSubject(subject: string) {
     const index = this.student.favoriteSubjects.indexOf(subject);
@@ -32,4 +39,5 @@ export class StudentFormComponent {
     if(!res){
     alert('Student Added!');}
   }
+
 }
